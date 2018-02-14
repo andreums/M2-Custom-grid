@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">orders_list.orders_list_data_source</item>
+            <item name="deps" xsi:type="string">orders_list.orders_list_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">orders_list_columns</item>
+    </argument>
+    <argument name="filter_index" xsi:type="string">o.entity_id</argument>
+    <dataSource name="orders_list_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">BroSolutions\OrdersExport\Ui\Component\DataProvider\Grid</argument>
+            <argument name="name" xsi:type="string">orders_list_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <exportButton name="export_button"/>
+        <filterSearch name="fulltext"/>
+        <paging name="listing_paging"/>
+        <filters name="listing_filters" />
+    </listingToolbar>
+    <columns name="orders_list_columns">
+        <column name="purchased_order_id">
+            <settings>
+                <label translate="true">ID</label>
+                <!--filter>text</filter>
+                <filterIndex>o.entity_id</filterIndex-->
+            </settings>
+        </column>
+        <column name="order_date" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Purchase Date</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="status" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <options class="Magento\Sales\Ui\Component\Listing\Column\Status\Options"/>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+        <column name="customer_firstname">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer First Name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="customer_lastname">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Last Name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="company" class="BroSolutions\OrdersExport\Ui\Component\Orderslist\Column\Company">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Company</item>
+                </item>
+            </argument>
+        </column>
+        <column name="membership_type" class="BroSolutions\OrdersExport\Ui\Component\Orderslist\Column\Membershiptype">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Membership Type</item>
+                </item>
+            </argument>
+        </column>
+        <column name="member_expiration">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Membership Expiration Date</item>
+                </item>
+            </argument>
+        </column>
+        <column name="customer_email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Email</item>
+                </item>
+            </argument>
+        </column>
+        <column name="telephone">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Phone</item>
+                </item>
+            </argument>
+        </column>
+        <column name="street">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Street</item>
+                </item>
+            </argument>
+        </column>
+        <column name="street">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Street</item>
+                </item>
+            </argument>
+        </column>
+        <column name="city">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer City</item>
+                </item>
+            </argument>
+        </column>
+        <column name="region">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer State</item>
+                </item>
+            </argument>
+        </column>
+        <column name="postcode">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Zip</item>
+                </item>
+            </argument>
+        </column>
+        <column name="postcode">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Zip</item>
+                </item>
+            </argument>
+        </column>
+        <column name="country_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Customer Country</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Item Name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_sku">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Item SKU</item>
+                </item>
+            </argument>
+        </column>
+        <column name="custom_option_value" class="BroSolutions\OrdersExport\Ui\Component\Orderslist\Column\Options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Item Options</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_original_price">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Item Price</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_discount">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Item Discount</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_price">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Item Total</item>
+                </item>
+            </argument>
+        </column>
+
+    </columns>
+</listing>
